@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"myapp/pkg/handlers"
 	"net/http"
 )
 
@@ -15,8 +16,8 @@ func main() {
 	// 	}
 	// 	fmt.Println(fmt.Sprintf("NUmber of bytes written: %d", n))
 	// })
-	http.HandleFunc("/", Home)
-	http.HandleFunc("/about", About)
+	http.HandleFunc("/", handlers.Home)
+	http.HandleFunc("/about", handlers.About)
 	fmt.Println("Starting application on port", portZNumber)
 	_ = http.ListenAndServe(portZNumber, nil)
 }
