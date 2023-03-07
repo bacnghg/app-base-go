@@ -21,6 +21,7 @@ func main() {
 	// })
 
 	var app config.AppConfig
+
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
@@ -28,6 +29,7 @@ func main() {
 
 	app.TemplateCache = tc
 
+	render.NewTemplates(&app)
 	http.HandleFunc("/", handlers.Home)
 	http.HandleFunc("/about", handlers.About)
 	fmt.Println("Starting application on port", portZNumber)
